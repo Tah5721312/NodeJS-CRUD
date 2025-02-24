@@ -9,10 +9,12 @@ app.use(express.static("public"));
 
 var methodOverride = require("method-override");
 app.use(methodOverride("_method"));
+
+
 const allRoutes = require("./routes/allRoutes");
 const addUserRoute = require("./routes/addUser");
 
-// Auto refresh
+/////////// Auto refresh
 const path = require("path");
 const livereload = require("livereload");
 const liveReloadServer = livereload.createServer();
@@ -26,6 +28,7 @@ liveReloadServer.server.once("connection", () => {
     liveReloadServer.refresh("/");
   }, 100);
 });
+//////////////////
 
 mongoose
   .connect(
